@@ -99,30 +99,24 @@ const addTask = () => {
   taskInput.value = "";
 };
 const removeTask = (tag, index) => {
-  tasks.every((item) => {
+  tasks.findIndex((item) => {
     if (item.tag == tag) {
       item.content.splice(index, 1);
-      return false;
     }
-    return true;
   });
 };
 
 function getEmit(task, prevTag, index, tag) {
-  tasks.every((item) => {
-    console.log("here");
+  tasks.findIndex((item) => {
     if (item.tag == tag) {
+      console.log("hello");
       item.content.push({ tag, task });
-      return false;
     }
-    return true;
   });
-  tasks.every((item) => {
+  tasks.findIndex((item) => {
     if (item.tag == prevTag) {
       item.content.splice(index, 1);
-      return false;
     }
-    return true;
   });
   // console.log(tasks);
 }
