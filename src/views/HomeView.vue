@@ -101,21 +101,22 @@ const addTask = () => {
 const removeTask = (tag, index) => {
   tasks.findIndex((item) => {
     if (item.tag == tag) {
-      item.content.splice(index, 1);
+      return item.content.splice(index, 1);
     }
   });
 };
-
+const arr = reactive([1, 4, 5, 6, 7, 77]);
+// console.log(arr.findIndex((item) => item > 5));
 function getEmit(task, prevTag, index, tag) {
   tasks.findIndex((item) => {
+    console.log("hello");
     if (item.tag == tag) {
-      console.log("hello");
-      item.content.push({ tag, task });
+      return item.content.push({ tag, task });
     }
   });
   tasks.findIndex((item) => {
     if (item.tag == prevTag) {
-      item.content.splice(index, 1);
+      return item.content.splice(index, 1);
     }
   });
   // console.log(tasks);
